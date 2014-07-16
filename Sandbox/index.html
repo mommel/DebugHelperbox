@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Mommel DLC">
+		<meta name="author" content="Mommel">
+		<title>DLC</title>
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700,300' rel='stylesheet' type='text/css'>
+		<link href='assets/bootstrap-3.2.0-dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
+		<link href='assets/bootstrap-3.2.0-dist/css/bootstrap-theme.css' rel='stylesheet' type='text/css'>
+		<link href='assets/bootstrap-checkbox/css/bootstrap-checkbox.css' rel='stylesheet' type='text/css'>
+		<link href='assets/sandbox.css' rel='stylesheet' type='text/css'>	
+		<script charset='utf-8' type='text/javascript' src='assets/jquery/jquery-2.1.1.js'></script>
+		<script charset='utf-8' type='text/javascript' src='assets/bootstrap-3.2.0-dist/js/bootstrap.js'></script>
+		<script charset='utf-8' type='text/javascript' src='http://modernizr.com/downloads/modernizr-latest.js'></script>
+		<script charset='utf-8' type='text/javascript' src='assets/config.js'></script>
+		<script charset='utf-8' type='text/javascript' src='assets/startpage.js'></script>
+		<script charset='utf-8' type='text/javascript' src='assets/bootstrap-checkbox/js/bootstrap-checkbox.js'></script>
+	</head>
+<body>
+
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Developer Helperbox</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a id="stopBtn" href="#">Stop Reload</a></li>
+	        <li><a id="restartBtn" href="#">Restart Reload</a></li>
+	      </ul>
+	      <form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+				Your selected Project &nbsp;
+	          	<input type="text" class="form-control" id="selectedProjectUnBtn" placeholder="Nothing">
+	        </div>
+	      </form>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="userSelector">User</span> <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu" id="userDropdown">
+	            <li id="userNameInDropdown"><a id="userNameInDropdownA">Me</a></li>
+	            <li id="devInDropdown"><a>Development</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<div id="wrap">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+		  
+		</ul>
+		<hr />
+		<div class="tab-content">
+		  <div class="tab-pane fade" id="n2h">
+		  	<h4>Nice to have</h4>
+		  	<div class="btn-group">
+		  		<button type="button" id="btnRegEx" class="staticButton btn btn-primary">PHP Live Regex</button>
+		  		<button type="button" id="btnJQueryLocal" class="staticButton btn btn-warning">jQuery Local Storage</button>  	
+		  		<button type="button" id="btnBootPly" class="staticButton btn btn-primary">Bootply</button>		
+		  		<button type="button" id="btnHoodie" class="staticButton btn btn-warning">Hood.ie</button>		
+		  	</div>
+		  </div> 
+
+		  <div class="tab-pane fade" id="adodb">
+		  	<h4>Adodb</h4>
+		  	<div class="btn-group">
+		  		<div id="adodbMysql" style="width:100%;height:250px;">Error</div>
+		  	</div>
+		  </div> 
+
+		</div>
+	</div>
+	<div id="footer">
+        <p class="muted credit">Sandbox - Version 0.5</a>.</p>
+    </div>
+</body>
+</html>

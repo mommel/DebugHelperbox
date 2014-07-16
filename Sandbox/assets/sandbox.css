@@ -1,0 +1,33 @@
+body{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+h1{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+
+}
+@import url(http://fonts.googleapis.com/css?family=Roboto:500);
+.consoleoptic{
+	font-family: 'Roboto', sans-serif !important;
+	text-decoration: none;
+
+}
+html,
+body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -65px;
+  padding: 0 0 65px;
+}
+
+#footer {
+  height: 65px;
+  background-color: #f5f5f5;
+}
+
+.list-group{
+  font-family: arial;
+}
