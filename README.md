@@ -26,3 +26,14 @@ http://jquery.com
 ######Twitter Bootstrap
 	MIT License
 http://getbootstrap.com
+
+######Google Fonts
+	Yanone Kaffeesatz
+	Yanone https://plus.google.com/117851060215561914602/about
+	SIL Open Font License, 1.1
+https://www.google.com/fonts/specimen/Yanone+Kaffeesatz
+	
+	Roboto
+	Christian Robertson
+	Apache License, version 2.0
+https://www.google.com/fonts/specimen/Roboto
