@@ -3,25 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Mommel DLC">
-		<meta name="author" content="Mommel">
-		<title>DLC</title>
+		<meta name="description" content="Manuel Braun Startpage">
+		<meta name="author" content="Manuel Braun">
+		<title>Manuel Braun - Startpage</title>
 		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700,300' rel='stylesheet' type='text/css'>
 		<link href='assets/bootstrap-3.2.0-dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
 		<link href='assets/bootstrap-3.2.0-dist/css/bootstrap-theme.css' rel='stylesheet' type='text/css'>
 		<link href='assets/bootstrap-checkbox/css/bootstrap-checkbox.css' rel='stylesheet' type='text/css'>
-		<link href='assets/sandbox.css' rel='stylesheet' type='text/css'>	
+		<link href='assets/sandbox.min.css' rel='stylesheet' type='text/css'>	
 		<script charset='utf-8' type='text/javascript' src='assets/jquery/jquery-2.1.1.js'></script>
 		<script charset='utf-8' type='text/javascript' src='assets/bootstrap-3.2.0-dist/js/bootstrap.js'></script>
 		<script charset='utf-8' type='text/javascript' src='http://modernizr.com/downloads/modernizr-latest.js'></script>
-		<script charset='utf-8' type='text/javascript' src='assets/config.js'></script>
-		<script charset='utf-8' type='text/javascript' src='assets/startpage.js'></script>
+		<script charset='utf-8' type='text/javascript' src='assets/config.min.js'></script>
+		<script charset='utf-8' type='text/javascript' src='assets/startpage.min.js'></script>
 		<script charset='utf-8' type='text/javascript' src='assets/bootstrap-checkbox/js/bootstrap-checkbox.js'></script>
 	</head>
 <body>
 
 	<nav class="navbar navbar-default" role="navigation">
 	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 	        <span class="sr-only">Toggle navigation</span>
@@ -35,15 +36,11 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a id="stopBtn" href="#">Stop Reload</a></li>
-	        <li><a id="restartBtn" href="#">Restart Reload</a></li>
+	        <li><a class="glyphicon glyphicon-pause" id="stopBtn" href="#"> Reload</a></li>
+	        <li><a class="glyphicon glyphicon-play" id="restartBtn" href="#"> Reload</a></li>
+	        <li><a class="glyphicon">Status: <p id="showstatus" class="glyphicon glyphicon-time"></p></a></li>
 	      </ul>
-	      <form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-				Your selected Project &nbsp;
-	          	<input type="text" class="form-control" id="selectedProjectUnBtn" placeholder="Nothing">
-	        </div>
-	      </form>
+
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span id="userSelector">User</span> <span class="caret"></span></a>
@@ -53,38 +50,133 @@
 	          </ul>
 	        </li>
 	      </ul>
+	      <form class="navbar-form navbar-right" role="search">
+	        <div class="form-group">
+				Your selected Project &nbsp;
+	          	<input type="text" class="form-control" id="selectedProjectUnBtn" placeholder="Nothing">
+	        </div>
+	      </form>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
 
+	<div class="alert hide alert-success" id="harok" role="alert">
+	  <strong>OK!</strong> Your .htaccess has been modified well.
+	</div>
+	<div class="alert hide alert-danger" id="harerror" role="alert">
+	  <strong>Error!</strong> Something went wrong<br/> <span id="harerrormsg">&nbsp;</span>.
+	</div>
+	<div class="alert hide alert-info" id="genxmlstart" role="alert">
+	  <strong>XML Generation started</strong> <span id="genxmlstartmsg">&nbsp;</span>.
+	</div>
 	<div id="wrap">
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
-		  
+		  <li><a href="#windowsVmProjects" role="tab" data-toggle="tab">Sandboxes Windows VM</a></li>
+		  <li><a href="#entwicklungLinux1Projects" role="tab" data-toggle="tab">Sandboxes Entwicklung Linux 1</a></li>
+		  <li><a href="#entwicklungLinux2Projects" role="tab" data-toggle="tab">Sandboxes Entwicklung Linux 2</a></li>
+		  <li><a href="#entwicklungLinux3Projects" role="tab" data-toggle="tab">Sandboxes Entwicklung Linux 3</a></li>
+		  <li><a href="#adodb" role="tab" data-toggle="tab">Adodb</a></li>  
+		  <li class="active"><a href="#redmine" role="tab" data-toggle="tab">Redmine</a></li>
+		  <li><a href="#intern" role="tab" data-toggle="tab">Intern</a></li>
+		  <li><a href="#n2h" role="tab" data-toggle="tab">Tools</a></li>
 		</ul>
 		<hr />
 		<div class="tab-content">
-		  <div class="tab-pane fade" id="n2h">
-		  	<h4>Nice to have</h4>
-		  	<div class="btn-group">
-		  		<button type="button" id="btnRegEx" class="staticButton btn btn-primary">PHP Live Regex</button>
-		  		<button type="button" id="btnJQueryLocal" class="staticButton btn btn-warning">jQuery Local Storage</button>  	
-		  		<button type="button" id="btnBootPly" class="staticButton btn btn-primary">Bootply</button>		
-		  		<button type="button" id="btnHoodie" class="staticButton btn btn-warning">Hood.ie</button>		
+			<!-- TAB VM -->
+			<div class="tab-pane fade" id="windowsVmProjects">
+				<h4>Projekte VM</h4>
+				<div id="windowsVmProjectsContent">Error</div><br />
+				<div id="filterbubbleVM" class="filterbubble">Error</div><br />
+				<div id="vmlog" style="width:100%;height:550px;background-color:#000000;color:#00DD00"></div>
+			</div>
+			<!-- TAB Linux 1 -->
+			<div class="tab-pane fade" id="entwicklungLinux1Projects">
+				<h4>Projekte Linux1</h4>
+				<div id="entwicklungLinux1ProjectsContent">Error</div><br />
+				<div id="filterbubbleL1" class="filterbubble">Error</div><br />
+				<div id="l1logholder" style="width:100%;height:450px;overflow-y:scroll;background-color:#000000;color:#00DD00">
+					<div id="l1log"></div>
+				</div>
+			</div>
+			<!-- TAB Linux 2 -->
+			<div class="tab-pane fade" id="entwicklungLinux2Projects">
+				<h4>Projekte Linux2</h4>
+				<div id="entwicklungLinux2ProjectsContent">Error</div><br />
+				<div id="filterbubbleL2" class="filterbubble">Error</div><br />
+				<div id="l2logholder" style="width:100%;height:450px;overflow-y:scroll;background-color:#000000;color:#00DD00">
+					<div id="l2log"></div>
+				</div>
+			</div>
+			<!-- TAB Linux 3 -->
+			<div class="tab-pane fade" id="entwicklungLinux3Projects">
+				<h4>Projekte Linux3</h4>
+				<div id="entwicklungLinux3ProjectsContent">Error</div><br />
+				<div id="filterbubbleL3" class="filterbubble">Error</div><br />
+				<div id="l3logholder" style="width:100%;height:450px;overflow-y:scroll;background-color:#000000;color:#00DD00">
+					<div id="l3log"></div>
+				</div>
+			</div>
+			<!-- TAB Redmine -->
+			<div class="tab-pane fade in active" id="redmine">
+				<h4>Redmine</h4>
+				<div class="btn-group">
+					<button type="button" id="btnRedmineToday" class="staticButton btn btn-success">Aufgewendete Zeit - Heute</button>
+					<button type="button" id="btnRedmineIssue" class="staticButton btn btn-warning">Issue</button><br />
+				</div>
 		  	</div>
-		  </div> 
+			<!-- TAB Intern -->
+			<div class="tab-pane fade" id="intern">
+				<h4>Intern</h4>
+				<div class="btn-group">
+					<button type="button" id="btnIntranet" class="staticButton btn btn-primary">Intranet</button>
+					<button type="button" id="btnWiki" class="staticButton btn btn-warning">Wiki</button>
+					<button type="button" id="btnJenkins" class="staticButton btn btn-info">Jenkins CI</button>
+					<button type="button" id="btnSvn" class="staticButton btn btn-primary">WebSVN</button>
+					<button type="button" id="btnGit" class="staticButton btn btn-warning">Gitlabs</button>
+				</div>
+			</div>
+			<!-- TAB Nice to have -->
+			<div class="tab-pane fade" id="n2h">
+				<h4>Nice to have</h4>
+				<div class="btn-group">
+					<button type="button" id="btnRegEx" class="staticButton btn btn-primary">PHP Live Regex</button>
+					<button type="button" id="btnJQueryLocal" class="staticButton btn btn-warning">jQuery Local Storage</button>
+					<button type="button" id="btnBootPly" class="staticButton btn btn-primary">Bootply</button>
+					<button type="button" id="btnHoodie" class="staticButton btn btn-warning">Hood.ie</button>
+					<button type="button" id="btnUmlaute" class="staticButton btn btn-primary">Umlaute</button>
+				</div>
+				<hr />
+				<h4>XML/XSLT Transformation</h4>
+				<form id="xmltranform" enctype="multipart/form-data" action="" method="POST" target="_blank">
+					<span class="glyphicon glyphicon-eye-open"></span> XSL:<br />
+					URL: <input type="text" name="xslurl"><br />
+					Upload: <input class="btn btn-primary" name="xslfile" type="file" value=""/> <br />
 
-		  <div class="tab-pane fade" id="adodb">
-		  	<h4>Adodb</h4>
-		  	<div class="btn-group">
-		  		<div id="adodbMysql" style="width:100%;height:250px;">Error</div>
-		  	</div>
-		  </div> 
-
+					<br />
+					<span class="glyphicon glyphicon-hdd"></span> XML: <br />
+					URL:<input type="text" name="xmlurl"><br />
+					Upload:<input class="btn btn-primary" name="xmlfile" type="file" value=""/><br />
+					<br />
+					<br />
+					<button type="button" class="btn btn-default btn-lg" onclick="submit();">
+					  <span class="glyphicon glyphicon-cloud-upload"></span> Transform files
+					</button>
+				</form>
+			</div>
+			<!-- ADODB LOG -->
+			<div class="tab-pane fade" id="adodb">
+				<h4>Adodb</h4>
+				&nbsp;&nbsp;<input type="radio" name="databasetype" id="databasetype_mysql" value="mysql" checked> <h3 style="display:inline;"> MySql </h3> <input type="radio" name="databasetype" id="databasetype_mssql" value="mssql"> <h3 style="display:inline;"> MsSql </h3><br />
+				<br />
+				<div class="btn-group">
+					<div id="adodbMysql" style="width:100%;height:250px;">Error</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div id="footer">
-        <p class="muted credit">Sandbox - Version 0.5</a>.</p>
+        <p class="muted credit">Sandbox - Version 0.8</a></p>
     </div>
 </body>
 </html>
