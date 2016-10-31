@@ -1,0 +1,24 @@
+{
+  "name": "DebugHelperbox",
+  "homepage": "https://github.com/verwirrteswesen/DebugHelperbox",
+  "authors": [
+    "Julia"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap-checkbox": "^1.4.0",
+    "bootstrap": "^3.3.7",
+    "modernizr": "^3.3.1"
+  }
+}
